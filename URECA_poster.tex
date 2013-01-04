@@ -1,0 +1,81 @@
+\documentclass[twocolumn]{article}
+\usepackage[top=2in, bottom=1in, left=0.5in, right=1in ]{geometry}
+\usepackage{graphicx}
+\usepackage{wallpaper}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\CenterWallPaper{1}{URECA_Poster_Template.pdf}
+\newcommand{\sect}[1]{\vspace{-1mm} \paragraph{{\large {#1}.}}}
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{huge}
+\begin{center}
+Shape Reconstruction from Moments
+\end{center}
+\end{huge}
+
+\begin{large}
+
+\sect{Introduction}
+Inverse problems for measures supported on plane shapes (e.g. polygons) deal
+with conversion of observations (more precisly, some moments of the
+measure) into information about the shape (e.g. vertices of the polygon).
+Complex moments are defined as 
+$$m_k = \iint_\triangle{z^k}dx\,dy, \quad z\in \mathbb{C}, \quad k=0,1,2,\dots$$ 
+This is quite useful in real life as there are lots of parameters which we
+cannot measure directly. The advantage of using moments is that we can obtain
+the properties of these parameters from the shape that we construct using
+moments. The inverse problems have many applications in areas such as
+computerized tomography, image processing, signal processing and inverse
+potential theory. 
+
+\sect{Objective}
+One of our aims is to reconstruct plane triangles from the uniform measures on them, 
+i.e. find a relation between
+$z_1,z_2,z_3$ and $m_1,m_2,m_3$ where $z_1,z_2,z_3$ are vertices of a triangle.
+We also try to formulate a moment generating function for polyhedron.
+
+\sect{Methodology}
+Let $f(z)=(z-z_1)(z-z_2)(z-z_3)=\sum_{k=0}^{3}{a_kz^k}$.
+In \cite{davis77} one finds the following formulas
+$$z_1+z_2+z_3=\frac{3m_1}{m_0}$$ $$z_1z_2+z_1z_3+z_2z_3=\frac{9m_1^2 -6m_0m_2}{m_0^2}$$ $$z_1z_2z_3=\dfrac{10m_0^2m_3+27m_1^3-36m_0m_1m_2}
+{m_0^3}$$
+
+Notice that the three complex numbers $z_1,z_2,z_3$ depend on first four
+moments. But we can reduce the dependency to only three moments by finding the
+relation between $m_0$ and $m_1,m_2,m_3$ through a formula for the area 
+$m_0=m_0(z_1,z_2,z_3)$ of the triangle  
+$$m_0=\frac{i}{4}\det(V), \quad V=
+\begin{pmatrix}
+z_1 & \overline{z_1} & 1 \\
+z_2 & \overline{z_2} & 1 \\
+z_3 & \overline{z_3} & 1 \\
+\end{pmatrix}.$$
+By expanding $VV^T$, we can obtain an equation which relates $m_0$ and $a_1,a_2,a_3$.
+
+In \cite{PS12}, the moment generating function 
+$$\Psi_\mu (u)=\sum_{j=0}^{\infty}{\frac{(j+2)(j+1)}{2}{m_j(\mu)u^j}}=\int \frac{d\mu(z)}{(1-uz)^3}$$
+where moments are coefficients, is obtained. Thus, by using the moments
+given, we can obtain try to recover the shape (e.g. the vertices of the triangle). 
+We try to extend this to higher-dimensional
+polyhedra, i.e. to design a moment generating function which gives us
+the vertices of the polyhedron from moments given.This is quite useful because
+we can convert the power series into closed form and hence obtain its
+vertices.  Besides, we try to test the uniqueness of the polyhedron from
+series obtained, that is, how many polyhedrons can be reconstructed from the
+series obtained.
+
+\begin{thebibliography}{10}
+\bibitem{wikiinverse} \url{http://en.wikipedia.org/wiki/Inverse_problem}
+\bibitem{davis77} P.J. Davis, Plane regions determined by complex moments. 
+J. of Approximation Theory, 19(1977) 
+148-153
+\bibitem{PS12} D. Pasechnik, B. Shapiro. 
+On polygonal measures with vanishing harmonic moments. arXiv:1209.4014 (2012)
+\end{thebibliography}
+\end{large}
+\end{document}
