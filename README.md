@@ -3,7 +3,7 @@ ntu_tex
 
 various useful NTU-specific (La)TeX sources and templates
 
-* URECA_poster: LaTeX source and PDF background, conform to URECA rules
+* URECA_poster: LaTeX source and PDF background, conform to URECA rules.
   The resulting PDF needs to be converted to pptx for submission to URECA.
   (Thanks to Ng Hong Wai for working on this)
 
